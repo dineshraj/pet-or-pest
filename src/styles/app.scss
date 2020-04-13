@@ -1,14 +1,17 @@
 $arrowcolor: rgb(58, 179, 190);
 
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .pet-or-pest {
   width: 60%;
   max-width: 900px;
   margin: 0 auto;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
   .pet-or-pest__heading {
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
   }
 
   .pet-or-pest__division {
@@ -89,5 +92,59 @@ $arrowcolor: rgb(58, 179, 190);
     border-left: 62px solid $arrowcolor;
     border-bottom: 40px solid transparent;
     margin-left: 50px;
+  }
+}
+
+
+.you-said {
+  clear: left;
+  padding-top: 70px;
+  width: 60%;
+  max-width: 500px;
+  margin: 0 auto;
+
+  .you-said__heading {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  .you-said__division {
+    float: left;
+  }
+
+  .you-said__division--center {
+    width: 34%;
+  }
+
+  .you-said__division--left, .you-said__division--right {
+    width: 33%;
+  }
+
+  .you-said__image {
+    background-color: darkgray;
+    width: 130px;
+    height: 130px;
+    display: block;
+    margin: 0 auto;
+    border: 6px solid white;
+    box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+  }
+
+  .you-said__agreement {
+    color: #888;
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .you-said__agreement-percent {
+    font-weight: bold;
+  }
+
+  .you-said__bar-chart {
+    color: #888;
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
   }
 }
