@@ -3,6 +3,8 @@ $petcolor: orange;
 $pestcolor: cornflowerblue;
 
 body {
+  background-image: url(https://thumbs.dreamstime.com/b/vector-seamless-pattern-subtle-floral-ornamental-background-repeat-geometric-tiles-abstract-light-beige-white-ornament-texture-159867857.jpg);
+  background-blend-mode: normal;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -133,7 +135,7 @@ body {
   }
 
   .results__agreement {
-    color: #777;
+    color: #444;
     font-style: italic;
     font-size: 2em;
     text-align: center;
@@ -147,8 +149,8 @@ body {
     width: 120px;
     height: 120px;
     margin: 10px auto;
-    border-left: 2px solid #777;
-    border-bottom: 2px solid #777;
+    border-left: 2px solid #222;
+    border-bottom: 2px solid #222;
   }
 
   .results__bar-chart--bar {
@@ -156,8 +158,8 @@ body {
     height: 110px;
     width: 44px;
     margin-left: 10px;
-    border: 1px solid #aaa;
-    border-bottom: 2px solid #777;
+    border: 1px solid #888;
+    border-bottom: 2px solid #222;
     margin-top: 9px;
   }
 
@@ -186,6 +188,6 @@ body {
   p {
     text-align: center;
     margin: 50px;
-    color: #888;
+    color: #222;
   }
 }
