@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run clean && webpack",
-    "clean": "rm -rf ./build && mkdir ./build"
+    "clean": "rm -rf ./build && mkdir ./build",
+    "deploy": "npm run format && npm run build && cf push",
+    "format": "prettier --loglevel warn --write '**/*.{ts,js,json,jsx,tsx,md}'",
+    "format:check": "prettier --check '**/*.{ts,js,json,jsx,tsx,md}'",
+    "tsc": "tsc --noEmit",
+    "eslint": "eslint . --ext=tsx --ext=ts --ext=jsx --ext=js"
   },
   "repository": {
     "type": "git",
@@ -22,14 +27,19 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
+    "@types/express": "^4.17.6",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.2",
+    "eslint": "^6.8.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.3",
+    "prettier": "2.0.4",
     "sass-loader": "^8.0.2",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3",
     "url-loader": "^4.1.0",
     "webpack": "^4.42.1"
   },
@@ -38,5 +48,15 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "webpack-cli": "^3.3.11"
+  },
+  "eslintConfig": {
+    "extends": [
+      "prettier",
+      "prettier/react",
+      "prettier/@typescript-eslint"
+    ],
+    "parserOptions": {
+      "sourceType": "module"
+    }
   }
 }

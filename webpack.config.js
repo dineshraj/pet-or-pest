@@ -12,15 +12,16 @@ function getPlugins() {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(env),
-      }
+      },
     }),
     new HtmlWebpackPlugin({
       title:
         'Pet or Pest? Choose whether you think the animal is a pet or a pest!',
       template: 'src/views/index.html',
       favicon: 'src/static/favicon.png',
+      filename: 'main.html',
     }),
-    new MiniCssExtractPlugin({ filename: 'bundle.[chunkhash].css' })
+    new MiniCssExtractPlugin({ filename: 'bundle.[chunkhash].css' }),
   ];
 }
 
@@ -29,7 +30,7 @@ module.exports = {
   entry: path.resolve(__dirname, './client.jsx'),
   output: {
     path: path.resolve(__dirname, './build'),
-    filename: 'index.[chunkhash].js'
+    filename: 'index.[chunkhash].js',
   },
   devtool: isProduction ? false : 'cheap-module-source-map',
   module: {
@@ -37,7 +38,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['babel-loader'],
       },
       {
         test: /\.scss$/,
@@ -51,18 +52,18 @@ module.exports = {
             options: {
               sourceMap: true,
             },
-          }
-        ]
+          },
+        ],
       },
       {
         test: /\.(png|jpg)$/,
         use: [
           {
-            loader: 'url-loader'
+            loader: 'url-loader',
           },
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
   optimization: {
     minimize: isProduction,
@@ -70,5 +71,5 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.js'],
   },
-  plugins: getPlugins()
+  plugins: getPlugins(),
 };
