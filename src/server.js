@@ -21,7 +21,6 @@ function handleRender(req, res) {
       /<div id="pet-or-pest"><\/div>/,
       `<div id="pet-or-pest">${html}</div>`
     );
-    res.send(document);    
+    res.send(document);
   });
-}
 }
