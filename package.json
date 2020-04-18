@@ -4,8 +4,20 @@
   "description": "A nodejs app using express, webpack, babel and React,",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && webpack",
-    "clean": "rm -rf ./build && mkdir ./build"
+    "build": "NODE_ENV=production npm run clean && npm run babel && webpack",
+    "debug": "NODE_ENV=dev nodemon --exec babel-node src/server.js",
+    "test": "",
+    "start": "node dist/server.js",
+    "posttest": "npm run tsc && npm run lint && npm run format:check",
+    "babel": "babel src --out-dir ./dist --source-maps --extensions .js,.jsx,.ts,.tsx --copy-files && cp webpack.config.js dist/webpack.config.js",
+    "clean": "rm -rf ./dist && mkdir -p ./dist/public",
+    "deploy": "npm run test && npm run build && cf push",
+    "format": "prettier --loglevel warn --write '**/*.{ts,js,json,jsx,tsx,md}'",
+    "format:check": "prettier --check '**/*.{ts,js,json,jsx,tsx,md}'",
+    "tsc": "tsc --noEmit",
+    "lint": "npm run eslint && npm run lint:sass",
+    "eslint": "eslint . --ext=tsx --ext=ts --ext=jsx --ext=js",
+    "lint:sass": "sass-lint -v -q"
   },
   "repository": {
     "type": "git",
@@ -20,16 +32,24 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/express": "^4.17.6",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.2",
+    "eslint": "^6.8.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.3",
+    "prettier": "2.0.4",
+    "sass-lint": "^1.13.1",
     "sass-loader": "^8.0.2",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3",
     "url-loader": "^4.1.0",
     "webpack": "^4.42.1"
   },
@@ -38,5 +58,15 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "webpack-cli": "^3.3.11"
+  },
+  "eslintConfig": {
+    "extends": [
+      "prettier",
+      "prettier/react",
+      "prettier/@typescript-eslint"
+    ],
+    "parserOptions": {
+      "sourceType": "module"
+    }
   }
 }

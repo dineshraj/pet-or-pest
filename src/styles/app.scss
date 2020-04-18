@@ -22,17 +22,7 @@ $breakpoint-large: 'only screen and (min-width:#{$breakpoint-large-val})';
 }
 
 body {
-  background-color: red;
-  @include bp('small') {
-    background-color: orange;
-  }
-  @include bp('med') {
-    background-color: yellow;
-  }
-  @include bp('large') {
-    background-color: green;
-  }
-  // background-image: url(https://thumbs.dreamstime.com/b/vector-seamless-pattern-subtle-floral-ornamental-background-repeat-geometric-tiles-abstract-light-beige-white-ornament-texture-159867857.jpg);
+  background-image: url(https://thumbs.dreamstime.com/b/vector-seamless-pattern-subtle-floral-ornamental-background-repeat-geometric-tiles-abstract-light-beige-white-ornament-texture-159867857.jpg);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
