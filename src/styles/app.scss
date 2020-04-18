@@ -1,7 +1,7 @@
 $petcolor: orange;
 $pestcolor: cornflowerblue;
 
-$breakpoint-med-val: 768px;
+$breakpoint-med-val: 650px;
 $breakpoint-large-val: 1000px;
 
 $breakpoint-med: 'only screen and (min-width:#{$breakpoint-med-val})';
@@ -24,6 +24,9 @@ body {
 }
 
 .pet-or-pest {
+  @include bp('med') {
+    width: 600px;
+  }
   @include bp('large') {
     width: 900px;
   }
@@ -31,15 +34,13 @@ body {
 
   .pet-or-pest__heading {
     text-align: center;
-    font-size: 3em;
-  }
-
-  .pet-or-pest__division {
-    float: left;
-  }
-
-  .pet-or-pest__division--center {
-    width: 676px;
+    font-size: 2em;
+    @include bp('med') {
+      font-size: 2.5em;
+    }
+    @include bp('large') {
+      font-size: 3em;
+    }
   }
 
   .pet-or-pest__image {
@@ -51,7 +52,7 @@ body {
 
     width: 200px;
     height: 200px;
-    @include bp('large') {
+    @include bp('med') {
       width: 450px;
       height: 450px;
     }
@@ -59,8 +60,22 @@ body {
 
   .pet-or-pest__arrows {
     position: relative;
+    @include bp('med') {
+      top: -40px;
+    }
     @include bp('large') {
       top: -280px;
+    }
+  }
+
+  .pet-or-pest__division {
+    float: left;
+  }
+
+  .pet-or-pest__division--center {
+    width: 376px;
+    @include bp('large') {
+      width: 676px;
     }
   }
 
