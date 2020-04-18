@@ -1,4 +1,268 @@
+$petcolor: orange;
+$pestcolor: cornflowerblue;
+
+$breakpoint-small-val: 450px;
+$breakpoint-med-val: 650px;
+$breakpoint-large-val: 1000px;
+
+$breakpoint-small: 'only screen and (min-width:#{$breakpoint-small-val})';
+$breakpoint-med: 'only screen and (min-width:#{$breakpoint-med-val})';
+$breakpoint-large: 'only screen and (min-width:#{$breakpoint-large-val})';
+
+@mixin bp($breakpoint) {
+  @if $breakpoint == 'small' {
+    @media #{$breakpoint-small} { @content; }
+  }
+  @if $breakpoint == 'med' {
+    @media #{$breakpoint-med} { @content; }
+  }
+  @if $breakpoint == 'large' {
+    @media #{$breakpoint-large} { @content; }
+  }
+}
+
 body {
-  background-color: white;
-  color: red;
+  background-image: url(https://thumbs.dreamstime.com/b/vector-seamless-pattern-subtle-floral-ornamental-background-repeat-geometric-tiles-abstract-light-beige-white-ornament-texture-159867857.jpg);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.pet-or-pest {
+  width: 300px;
+  @include bp('small') {
+    width: 400px;
+  }
+  @include bp('med') {
+    width: 600px;
+  }
+  @include bp('large') {
+    width: 900px;
+  }
+  margin: 0 auto;
+
+  .pet-or-pest__heading {
+    text-align: center;
+    font-size: 2em;
+    @include bp('small') {
+      font-size: 2.2em;
+    }
+    @include bp('med') {
+      font-size: 2.5em;
+    }
+    @include bp('large') {
+      font-size: 3em;
+    }
+  }
+
+  .pet-or-pest__image {
+    background-color: darkgray;
+    display: block;
+    margin: 0 auto;
+    border: 10px solid white;
+    box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+
+    width: 220px;
+    height: 220px;
+    @include bp('small') {
+      width: 300px;
+      height: 300px;
+    }
+    @include bp('med') {
+      width: 450px;
+      height: 450px;
+    }
+  }
+
+  .pet-or-pest__arrows {
+    position: relative;
+    top: -40px;
+    @include bp('large') {
+      top: -280px;
+    }
+  }
+
+  .pet-or-pest__division {
+    float: left;
+  }
+
+  .pet-or-pest__division--center {
+    width: 76px;
+    @include bp('small') {
+      width: 176px;
+    }
+    @include bp('med') {
+      width: 376px;
+    }
+    @include bp('large') {
+      width: 676px;
+    }
+  }
+
+  .pet-or-pest__arrow-link {
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 10px black;
+    text-transform: uppercase;
+  }
+
+  .pet-or-pest__arrow--pet {
+    width: 61px;
+    height: 50px;
+    background: $petcolor;
+    float: left;
+    margin-top: 15px;
+    font-size: 31px;
+    line-height: 50px;
+    border-right: 10px solid $petcolor;
+    margin-left: -21px;
+  }
+
+  .pet-or-pest__arrow--pest {
+    width: 50px;
+    height: 50px;
+    background: $pestcolor;
+    float: left;
+    margin-top: 15px;
+    font-size: 31px;
+    line-height: 50px;
+    border-left: 10px solid $pestcolor;
+  }
+
+  .pet-or-pest__arrow-head {
+    width: 0;
+    height: 0;
+  }
+
+  .pet-or-pest__arrow-head--pet {
+    border-top: 40px solid transparent;
+    border-right: 62px solid $petcolor;
+    border-bottom: 40px solid transparent;
+    float: left;
+  }
+
+  .pet-or-pest__arrow-head--pest {
+    border-top: 40px solid transparent;
+    border-left: 62px solid $pestcolor;
+    border-bottom: 40px solid transparent;
+    margin-left: 50px;
+  }
+}
+
+.results {
+  clear: left;
+  margin: 0 auto;
+  width: 330px;
+  @include bp('small') {
+    width: 400px;
+  }
+  @include bp('med') {
+    width: 500px;
+  }
+
+  .results__heading {
+    text-align: center;
+    font-size: 1.5em;
+    @include bp('small') {
+      font-size: 1.8em;
+    }
+    @include bp('med') {
+      font-size: 2.2em;
+    }
+    @include bp('large') {
+      font-size: 2.6em;
+    }
+  }
+
+  .results__division--left {
+    width: 100%;
+    @include bp('med') {
+      float: left;
+      width: 33%;
+    }
+  }
+
+  .results__division--center {
+    float: left;
+    width: 50%;
+    @include bp('med') {
+      width: 34%;
+    }
+  }
+
+  .results__division--right {
+    float: left;
+    width: 50%;
+    @include bp('med') {
+      width: 33%;
+    }
+  }
+
+  .results__image {
+    background-color: darkgray;
+    width: 130px;
+    height: 130px;
+    display: block;
+    margin: 0 auto;
+    border: 6px solid white;
+    box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+  }
+
+  .results__agreement {
+    color: #444;
+    font-style: italic;
+    text-align: center;
+    font-size: 1.6em;
+    @include bp('med') {
+      font-size: 2.2em;
+    }
+  }
+
+  .results__agreement-percent {
+    font-weight: bold;
+  }
+
+  .results__bar-chart {
+    width: 120px;
+    height: 120px;
+    margin: 10px auto;
+    border-left: 2px solid #222;
+    border-bottom: 2px solid #222;
+  }
+
+  .results__bar-chart--bar {
+    float: left;
+    height: 110px;
+    width: 44px;
+    margin-left: 10px;
+    border: 1px solid #888;
+    border-bottom: 2px solid #222;
+    margin-top: 9px;
+  }
+
+  .results__bar-chart--label {
+    margin-top: 5px;
+    color: white;
+    text-shadow: 1px 1px 10px black;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .results__bar-chart--bar-pet {
+    background-color: $petcolor;
+  }
+
+  .results__bar-chart--bar-pest {
+    background-color: $pestcolor;
+  }
+}
+
+.footer {
+  clear: left;
+  padding-top: 10px;
+
+  p {
+    text-align: center;
+    margin: 50px;
+    color: #222;
+  }
 }

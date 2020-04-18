@@ -1,9 +1,71 @@
-<html>
+<!doctype html>
+
+<html language="en">
   <head>
-    <title></title>
+    <meta charset="utf-8">
+    <title>Pet or Pest?</title>
+    <meta name="description" content="A site for desciding whether animals are a Pet or a Pest">
+    <meta name="author" content="D Goomani and Aimee Rivers">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    Hello everyone!
+    <section class="pet-or-pest">
+      <h1 class="pet-or-pest__heading">Pet or Pest?</h1>
+
+      <img src="" class="pet-or-pest__image">
+
+      <div class="pet-or-pest__arrows">
+
+        <div class="pet-or-pest__division pet-or-pest__division--pet">
+          <div class="pet-or-pest__arrow-head pet-or-pest__arrow-head--pet"></div>
+          <div class="pet-or-pest__arrow--pet">
+            <a class="pet-or-pest__arrow-link" href="#">Pet</a>
+          </div>
+        </div>
+
+        <div class="pet-or-pest__division pet-or-pest__division--center">&nbsp;</div>
+
+        <div class="pet-or-pest__division pet-or-pest__division--pest">
+          <div class="pet-or-pest__arrow--pest">
+            <a class="pet-or-pest__arrow-link" href="#">Pest</a>
+          </div>
+          <div class="pet-or-pest__arrow-head pet-or-pest__arrow-head--pest"></div>
+        </div>
+
+      </div>
+      
+    </section>
+
+    <section class="results">
+      <h2 class="results__heading">You said: PET!</h2>
+
+      <div class="results__division results__division--left">
+        <p class="results__agreement">
+          <span class="results__agreement-percent">73%</span> agree with you
+        </p>
+      </div>
+
+      <div class="results__division results__division--center">
+        <img src="" class="results__image">
+      </div>
+
+      <div class="results__division results__division--right">
+        <div class="results__bar-chart">
+          <div class="results__bar-chart--bar results__bar-chart--bar-pet">
+            <span class="results__bar-chart--label">73% Pet</span>
+          </div>
+          <div class="results__bar-chart--bar results__bar-chart--bar-pest" style="height: 50px; margin-top: 69px;">
+            <span class="results__bar-chart--label">27% Pest</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="footer">
+      <p>Pet or Pest? made by D Goomani and Aimee Rivers</p>
+    </section>
+
     <script
       crossorigin
       src="https://unpkg.com/react@16/umd/react.production.min.js"
