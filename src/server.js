@@ -9,13 +9,15 @@ import App from './components/App';
 const port = process.env.PORT || 8080;
 const app = express();
 
+const filePath = process.env.NODE_ENV === 'dev' ? 'src/views' : 'public';
+
 // for IBM cloud
 app.enable('trust proxy');
 
 function handleRender(req, res) {
   const html = renderToString(<App />);
 
-  fs.readFile('public/main.html', 'utf8', (err, data) => {
+  fs.readFile(`${filePath}/main.html`, 'utf8', (err, data) => {
     if (err) {
       throw err;
     }

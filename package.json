@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production npm run clean && npm run babel && webpack",
-    "debug": "NODE_ENV=dev nodemon --exec babel-node src/server.js",
+    "debug": "NODE_ENV=dev nodemon --exec babel-node src/server.js --extensions .js,.jsx,.ts,.tsx,.html",
     "test": "",
     "start": "node dist/server.js",
     "posttest": "npm run tsc && npm run lint && npm run format:check",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-export-default-from": "^7.8.3",
+    "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
@@ -40,6 +40,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.2",
     "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.2.0",
     "mini-css-extract-plugin": "^0.9.0",
@@ -51,13 +52,13 @@
     "tslint": "^6.1.1",
     "typescript": "^3.8.3",
     "url-loader": "^4.1.0",
-    "webpack": "^4.42.1"
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
     "express": "^4.17.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "webpack-cli": "^3.3.11"
+    "react-dom": "^16.13.1"
   },
   "eslintConfig": {
     "extends": [

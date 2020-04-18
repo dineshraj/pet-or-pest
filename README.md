@@ -1,3 +1,3 @@
 # Pet or Pest
 
-A nodejs app using express, webpack, babel and React, 
+A nodejs app using express, webpack, babel and React.
