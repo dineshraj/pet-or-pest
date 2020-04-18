@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production npm run clean && npm run babel && webpack",
-    "debug": "NODE_ENV=dev nodemon --exec babel-node src/server.js --extensions .js,.jsx,.ts,.tsx,.html",
+    "debug": "NODE_ENV=dev nodemon --ignore dist/ --ignore public/ --exec npm run babel && webpack --display-error-details",
     "test": "",
     "start": "node dist/server.js",
     "posttest": "npm run tsc && npm run lint && npm run format:check",
