@@ -1,6 +1,22 @@
 $petcolor: orange;
 $pestcolor: cornflowerblue;
 
+$breakpoint-med-val: 768px;
+$breakpoint-large-val: 1000px;
+
+$breakpoint-med: 'only screen and (min-width:#{$breakpoint-med-val})';
+$breakpoint-large: 'only screen and (min-width:#{$breakpoint-large-val})';
+
+@mixin bp($breakpoint) {
+  @if $breakpoint == 'med' {
+    @media #{$breakpoint-med} { @content; }
+  }
+
+  @if $breakpoint == 'large' {
+    @media #{$breakpoint-large} { @content; }
+  }
+}
+
 body {
   background-image: url(https://thumbs.dreamstime.com/b/vector-seamless-pattern-subtle-floral-ornamental-background-repeat-geometric-tiles-abstract-light-beige-white-ornament-texture-159867857.jpg);
   background-blend-mode: normal;
@@ -8,8 +24,9 @@ body {
 }
 
 .pet-or-pest {
-  width: 60%;
-  max-width: 900px;
+  @include bp('large') {
+    width: 900px;
+  }
   margin: 0 auto;
 
   .pet-or-pest__heading {
@@ -22,30 +39,29 @@ body {
   }
 
   .pet-or-pest__division--center {
-    width: 70%;
-  }
-
-  .pet-or-pest__division--left, .pet-or-pest__division--right {
-    width: 15%;
+    width: 676px;
   }
 
   .pet-or-pest__image {
     background-color: darkgray;
-    width: 450px;
-    height: 450px;
     display: block;
     margin: 0 auto;
     border: 10px solid white;
     box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+
+    width: 200px;
+    height: 200px;
+    @include bp('large') {
+      width: 450px;
+      height: 450px;
+    }
   }
 
-  .pet-or-pest__arrow-container {
-    margin-top: 200px;
-    width: 112px;
-  }
-
-  .pet-or-pest__arrow-container--pest {
-    margin-left: auto;
+  .pet-or-pest__arrows {
+    position: relative;
+    @include bp('large') {
+      top: -280px;
+    }
   }
 
   .pet-or-pest__arrow-link {
@@ -100,7 +116,6 @@ body {
 
 .results {
   clear: left;
-  padding-top: 70px;
   width: 60%;
   max-width: 500px;
   margin: 0 auto;
