@@ -165,7 +165,16 @@ body {
 
   .results__heading {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.2em;
+    @include bp('small') {
+      font-size: 1.5em;
+    }
+    @include bp('med') {
+      font-size: 2em;
+    }
+    @include bp('large') {
+      font-size: 2.5em;
+    }
   }
 
   .results__division {
