@@ -1,0 +1,5 @@
+{
+  "presets": ["@babel/preset-typescript", "@babel/env", "@babel/react"],
+  "plugins": ["@babel/plugin-proposal-export-default-from"],
+  "ignore": ["node_modules"]
+}
