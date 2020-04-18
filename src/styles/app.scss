@@ -149,9 +149,14 @@ body {
 
 .results {
   clear: left;
-  width: 60%;
-  max-width: 500px;
   margin: 0 auto;
+  width: 330px;
+  @include bp('small') {
+    width: 400px;
+  }
+  @include bp('med') {
+    width: 500px;
+  }
 
   .results__heading {
     text-align: center;
@@ -167,16 +172,28 @@ body {
     }
   }
 
-  .results__division {
-    float: left;
+  .results__division--left {
+    width: 100%;
+    @include bp('med') {
+      float: left;
+      width: 33%;
+    }
   }
 
   .results__division--center {
-    width: 34%;
+    float: left;
+    width: 50%;
+    @include bp('med') {
+      width: 34%;
+    }
   }
 
-  .results__division--left, .results__division--right {
-    width: 33%;
+  .results__division--right {
+    float: left;
+    width: 50%;
+    @include bp('med') {
+      width: 33%;
+    }
   }
 
   .results__image {
@@ -192,8 +209,11 @@ body {
   .results__agreement {
     color: #444;
     font-style: italic;
-    font-size: 2em;
     text-align: center;
+    font-size: 1.6em;
+    @include bp('med') {
+      font-size: 2.2em;
+    }
   }
 
   .results__agreement-percent {
