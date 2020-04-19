@@ -54,11 +54,13 @@ body {
   }
 
   .pet-or-pest__image {
-    background-color: darkgray;
+    background-color: white;
     display: block;
     margin: 0 auto;
     border: 10px solid white;
     box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+    animation-name: show;
+    animation-duration: 1s;
 
     width: 220px;
     height: 220px;
@@ -204,6 +206,8 @@ body {
     margin: 0 auto;
     border: 6px solid white;
     box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+    animation-name: show;
+    animation-duration: 0.5s;
   }
 
   .results__agreement {
@@ -240,11 +244,6 @@ body {
     animation-duration: 0.5s;
   }
 
-  @keyframes grow {
-    0%   { margin-top: 119px; height: 0; font-size: 0; }
-    99%  { font-size: 0; }
-  }
-
   .results__bar-chart--label {
     margin-top: 5px;
     color: white;
@@ -272,4 +271,14 @@ body {
     margin: 50px;
     color: #222;
   }
+}
+
+@keyframes grow {
+  0%   { margin-top: 119px; height: 0; font-size: 0; }
+  99%  { font-size: 0; }
+}
+
+@keyframes show {
+  0%   { opacity: 0%; }
+  100%  { opacity: 100%; }
 }
