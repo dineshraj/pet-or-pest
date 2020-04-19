@@ -35,68 +35,71 @@
   
   </head>
   <body>
-    <section class="pet-or-pest">
-      <h1 class="pet-or-pest__heading">Pet or Pest?</h1>
+    <div id="pet-or-pest"></div>
 
-      <img src="https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/spider.jpg" class="pet-or-pest__image" />
 
-      <div class="pet-or-pest__arrows">
-        <div class="pet-or-pest__division pet-or-pest__division--pet">
-          <div
-            class="pet-or-pest__arrow-head pet-or-pest__arrow-head--pet"
-          ></div>
-          <div class="pet-or-pest__arrow--pet">
-            <a class="pet-or-pest__arrow-link" href="#">Pet</a>
+    <h1>Static Content below</h1>
+      <div class="pet-or-pest">
+        <h1 class="pet-or-pest__heading">Pet or Pest?</h1>
+
+        <img src="https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/spider.jpg" class="pet-or-pest__image" />
+
+        <div class="pet-or-pest__arrows">
+          <div class="pet-or-pest__division pet-or-pest__division--pet">
+            <div
+              class="pet-or-pest__arrow-head pet-or-pest__arrow-head--pet"
+            ></div>
+            <div class="pet-or-pest__arrow--pet">
+              <a class="pet-or-pest__arrow-link" href="#">Pet</a>
+            </div>
+          </div>
+
+          <div class="pet-or-pest__division pet-or-pest__division--center">
+            &nbsp;
+          </div>
+
+          <div class="pet-or-pest__division pet-or-pest__division--pest">
+            <div class="pet-or-pest__arrow--pest">
+              <a class="pet-or-pest__arrow-link" href="#">Pest</a>
+            </div>
+            <div
+              class="pet-or-pest__arrow-head pet-or-pest__arrow-head--pest"
+            ></div>
           </div>
         </div>
+      </section>
 
-        <div class="pet-or-pest__division pet-or-pest__division--center">
-          &nbsp;
+      <section class="results">
+        <h2 class="results__heading">You said: PET!</h2>
+
+        <div class="results__division results__division--left">
+          <p class="results__agreement">
+            <span class="results__agreement-percent">73%</span> agree with you
+          </p>
         </div>
 
-        <div class="pet-or-pest__division pet-or-pest__division--pest">
-          <div class="pet-or-pest__arrow--pest">
-            <a class="pet-or-pest__arrow-link" href="#">Pest</a>
-          </div>
-          <div
-            class="pet-or-pest__arrow-head pet-or-pest__arrow-head--pest"
-          ></div>
+        <div class="results__division results__division--center">
+          <img src="https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/kitten.jpg" class="results__image" />
         </div>
-      </div>
-    </section>
 
-    <section class="results">
-      <h2 class="results__heading">You said: PET!</h2>
-
-      <div class="results__division results__division--left">
-        <p class="results__agreement">
-          <span class="results__agreement-percent">73%</span> agree with you
-        </p>
-      </div>
-
-      <div class="results__division results__division--center">
-        <img src="https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/kitten.jpg" class="results__image" />
-      </div>
-
-      <div class="results__division results__division--right">
-        <div class="results__bar-chart">
-          <div class="results__bar-chart--bar results__bar-chart--bar-pet">
-            <span class="results__bar-chart--label">73% Pet</span>
-          </div>
-          <div
-            class="results__bar-chart--bar results__bar-chart--bar-pest"
-            style="height: 50px; margin-top: 69px;"
-          >
-            <span class="results__bar-chart--label">27% Pest</span>
+        <div class="results__division results__division--right">
+          <div class="results__bar-chart">
+            <div class="results__bar-chart--bar results__bar-chart--bar-pet">
+              <span class="results__bar-chart--label">73% Pet</span>
+            </div>
+            <div
+              class="results__bar-chart--bar results__bar-chart--bar-pest"
+              style="height: 50px; margin-top: 69px;"
+            >
+              <span class="results__bar-chart--label">27% Pest</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="footer">
-      <p>Pet or Pest? made by D Goomani and Aimee Rivers</p>
-    </section>
-
+      <section class="footer">
+        <p>Pet or Pest? made by D Goomani and Aimee Rivers</p>
+      </section>
     <script
       crossorigin
       src="https://unpkg.com/react@16/umd/react.production.min.js"
@@ -104,6 +107,6 @@
     <script
       crossorigin
       src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
-    ></script>
+    ></script> 
   </body>
 </html>

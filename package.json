@@ -11,7 +11,7 @@
     "start": "node dist/server.js",
     "posttest": "npm run tsc && npm run lint && npm run format:check",
     "babel": "babel src --out-dir ./dist --source-maps --extensions .js,.ts,.tsx --copy-files",
-    "clean": "rm -rf ./dist && mkdir -p ./dist/public",
+    "clean": "rm -rf ./dist && mkdir -p ./dist && rm -rf ./public && mkdir -p ./public",
     "deploy": "npm run test && npm run build && cf push",
     "format": "prettier --loglevel warn --write '**/*.{ts,js,json,jsx,tsx,md}'",
     "format:check": "prettier --check '**/*.{ts,js,json,jsx,tsx,md}'",
@@ -55,6 +55,7 @@
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.3",
     "prettier": "2.0.4",
+    "react-test-renderer": "^16.13.1",
     "sass-lint": "^1.13.1",
     "sass-loader": "^8.0.2",
     "sinon": "^9.0.2",
@@ -72,12 +73,14 @@
   },
   "eslintConfig": {
     "extends": [
+      "plugin:react/recommended",
       "prettier",
       "prettier/react",
       "prettier/@typescript-eslint"
     ],
     "parserOptions": {
-      "sourceType": "module"
+      "sourceType": "module",
+      "ecmaVersion": 6
     }
   }
 }
