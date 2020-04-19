@@ -7,7 +7,7 @@ const mode = isProduction ? 'production' : 'development';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const appPath = isProduction ? 'dist' : 'src';
+const entryFile = isProduction ? 'dist/client.js' : 'src/client.tsx';
 
 function getPlugins() {
   return [
@@ -29,7 +29,7 @@ function getPlugins() {
 
 module.exports = {
   mode,
-  entry: path.resolve(__dirname, `./${appPath}/client`),
+  entry: path.resolve(__dirname, `./${entryFile}`),
   output: {
     path: path.resolve(__dirname, './public'),
     filename: 'index.[chunkhash].js',
