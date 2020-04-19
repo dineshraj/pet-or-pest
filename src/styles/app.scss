@@ -22,7 +22,7 @@ $breakpoint-large: 'only screen and (min-width:#{$breakpoint-large-val})';
 }
 
 body {
-  background-image: url(https://thumbs.dreamstime.com/b/vector-seamless-pattern-subtle-floral-ornamental-background-repeat-geometric-tiles-abstract-light-beige-white-ornament-texture-159867857.jpg);
+  background-image: url(https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/background.png);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -54,11 +54,13 @@ body {
   }
 
   .pet-or-pest__image {
-    background-color: darkgray;
+    background-color: white;
     display: block;
     margin: 0 auto;
     border: 10px solid white;
     box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+    animation-name: show;
+    animation-duration: 1s;
 
     width: 220px;
     height: 220px;
@@ -204,6 +206,8 @@ body {
     margin: 0 auto;
     border: 6px solid white;
     box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+    animation-name: show;
+    animation-duration: 0.5s;
   }
 
   .results__agreement {
@@ -236,6 +240,8 @@ body {
     border: 1px solid #888;
     border-bottom: 2px solid #222;
     margin-top: 9px;
+    animation-name: grow;
+    animation-duration: 0.5s;
   }
 
   .results__bar-chart--label {
@@ -265,4 +271,14 @@ body {
     margin: 50px;
     color: #222;
   }
+}
+
+@keyframes grow {
+  0%   { margin-top: 119px; height: 0; font-size: 0; }
+  99%  { font-size: 0; }
+}
+
+@keyframes show {
+  0%   { opacity: 0%; }
+  100%  { opacity: 100%; }
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production npm run clean && npm run babel && webpack",
     "build:dev": "NODE_ENV=dev npm run clean && npm run babel && webpack --display-error-details",
-    "debug": "NODE_ENV=dev nodemon -e js,ts,tsx,html --ignore dist/ --ignore public/ --exec npm run build:dev",
+    "debug": "NODE_ENV=dev nodemon -e js,ts,tsx,html,scss --ignore dist/ --ignore public/ --exec npm run build:dev",
     "test": "./node_modules/mocha/bin/mocha --recursive './test/**/*.{js,ts,jsx,tsx}'",
     "start": "node dist/server.js",
     "posttest": "npm run tsc && npm run lint && npm run format:check",
