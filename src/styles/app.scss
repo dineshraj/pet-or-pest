@@ -236,6 +236,13 @@ body {
     border: 1px solid #888;
     border-bottom: 2px solid #222;
     margin-top: 9px;
+    animation-name: grow;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes grow {
+    0%   { margin-top: 119px; height: 0; font-size: 0; }
+    99%  { font-size: 0; }
   }
 
   .results__bar-chart--label {
