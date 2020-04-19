@@ -6,6 +6,7 @@
     "sourceMap": true,
     "jsx": "preserve",
     "resolveJsonModule": true,
-    "noEmit": true
+    "noEmit": true,
+    "esModuleInterop": true
   }
 }
