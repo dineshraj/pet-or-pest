@@ -1,31 +1,30 @@
-$petcolor: orange;
-$pestcolor: cornflowerblue;
+@import './breakpoints';
 
-$breakpoint-small-val: 450px;
-$breakpoint-med-val: 650px;
-$breakpoint-large-val: 1000px;
-
-$breakpoint-small: 'only screen and (min-width:#{$breakpoint-small-val})';
-$breakpoint-med: 'only screen and (min-width:#{$breakpoint-med-val})';
-$breakpoint-large: 'only screen and (min-width:#{$breakpoint-large-val})';
-
-@mixin bp($breakpoint) {
-  @if $breakpoint == 'small' {
-    @media #{$breakpoint-small} { @content; }
-  }
-  @if $breakpoint == 'med' {
-    @media #{$breakpoint-med} { @content; }
-  }
-  @if $breakpoint == 'large' {
-    @media #{$breakpoint-large} { @content; }
-  }
-}
+$petcolor: #ffa500;
+$pestcolor: #6495ed;
+$white: #fff;
+$grey: #808080;
 
 body {
-  background-image: url(https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/background.png);
+  background-image: url('https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/background.png');
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.header {
+  text-align: center;
+  font-size: 2em;
+  @include bp('small') {
+    font-size: 2.2em;
+  }
+  @include bp('med') {
+    font-size: 2.5em;
+  }
+  @include bp('large') {
+    font-size: 3em;
+  }
+}
+
+/* FOR STATIC CONTENT */
 .pet-or-pest {
   width: 300px;
   @include bp('small') {
@@ -54,11 +53,11 @@ body {
   }
 
   .pet-or-pest__image {
-    background-color: white;
+    background-color: $white;
     display: block;
     margin: 0 auto;
-    border: 10px solid white;
-    box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+    border: 10px solid $white;
+    box-shadow: 0 4px 8px 0 $grey, 0 6px 20px 0 $grey;
     animation-name: show;
     animation-duration: 1s;
 
@@ -101,8 +100,8 @@ body {
 
   .pet-or-pest__arrow-link {
     text-decoration: none;
-    color: white;
-    text-shadow: 1px 1px 10px black;
+    color: $white;
+    text-shadow: 1px 1px 10px #000;
     text-transform: uppercase;
   }
 
@@ -199,13 +198,13 @@ body {
   }
 
   .results__image {
-    background-color: darkgray;
+    background-color: #a9a9a9;
     width: 130px;
     height: 130px;
     display: block;
     margin: 0 auto;
-    border: 6px solid white;
-    box-shadow: 0 4px 8px 0 gray, 0 6px 20px 0 gray;
+    border: 6px solid $white;
+    box-shadow: 0 4px 8px 0 $grey, 0 6px 20px 0 $grey;
     animation-name: show;
     animation-duration: 0.5s;
   }
@@ -246,8 +245,8 @@ body {
 
   .results__bar-chart--label {
     margin-top: 5px;
-    color: white;
-    text-shadow: 1px 1px 10px black;
+    color: $white;
+    text-shadow: 1px 1px 10px #000;
     display: block;
     text-align: center;
     text-transform: uppercase;
@@ -274,11 +273,23 @@ body {
 }
 
 @keyframes grow {
-  0%   { margin-top: 119px; height: 0; font-size: 0; }
-  99%  { font-size: 0; }
+  0% {
+    margin-top: 119px;
+    height: 0;
+    font-size: 0;
+  }
+
+  99% {
+    font-size: 0;
+  }
 }
 
 @keyframes show {
-  0%   { opacity: 0%; }
-  100%  { opacity: 100%; }
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }
