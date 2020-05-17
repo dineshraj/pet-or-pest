@@ -25,6 +25,7 @@ describe('Client', () => {
       const header = renderedApp.find('header');
       assert(header.find('h1'));
       assert.strictEqual(header.text(), 'Pet or Pest?');
+      // @todo test for logo when one is made
     });
 
     it('renders a container with an initial image', () => {
