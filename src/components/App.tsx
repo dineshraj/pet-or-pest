@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-export default function App() {
+const App: React.FunctionComponent = () => {
   // const [image, setImage] = useState({ hits: [] });
 
   // useEffect(async () => {
@@ -8,7 +8,7 @@ export default function App() {
   //   setImage(image);
   // });
 
-  function handleClick(e) {
+  function handleClick(e): void {
     console.log(e.target);
     console.log(e.target.getAttribute('data-id'));
   }
@@ -23,10 +23,27 @@ export default function App() {
           className="animal"
           src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2020/01/07/13/monarch-butterfly.jpg?w968h681"
         />
-        <button data-id="pest" className="arrow arrow--pest" onClick={(e: Event) => handleClick(e)}>Pest</button>
-        <button data-id="pet" className="arrow arrow--pet" onClick={(e: Event) => handleClick(e)}>Pet</button>
+        <button
+          data-id="pest"
+          className="arrow arrow--pest"
+          onClick={(e: Event): void => handleClick(e)}
+        >
+          Pest
+        </button>
+        <button
+          data-id="pet"
+          className="arrow arrow--pet"
+          onClick={(e: Event): void => handleClick(e)}
+        >
+          Pet
+        </button>
       </main>
-      <footer className="footer">Pet or Pest? Made by D Goomani and Aimee Rivers</footer>
+      <footer className="footer">
+        Pet or Pest? Made by <a href="http://www.dineshraj.com">D Goomani</a>{' '}
+        and Aimee Rivers
+      </footer>
     </>
   );
-}
+};
+
+export default App;

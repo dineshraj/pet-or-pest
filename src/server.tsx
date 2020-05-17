@@ -12,7 +12,7 @@ const app = express();
 // for IBM cloud
 app.enable('trust proxy');
 
-function handleRender(req, res) {
+function handleRender(req, res): void {
   const html = renderToString(<App />);
 
   fs.readFile(`public/main.html`, 'utf8', (err, data) => {
@@ -28,7 +28,7 @@ function handleRender(req, res) {
   });
 }
 
-function handle404(req, res) {
+function handle404(req, res): void {
   res.status(404).send('<h1>404 Not Found</h1>');
 }
 

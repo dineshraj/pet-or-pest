@@ -1,2 +1,5 @@
 dist
 public
+node_modules
+webpack.config.js
+test/setup.js

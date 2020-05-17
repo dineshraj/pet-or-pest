@@ -2,14 +2,27 @@
 
 $petcolor: #ffa500;
 $pestcolor: #6495ed;
+$linkcolor: #6495ed;
 $white: #fff;
+$black: #000;
 $grey: #808080;
-$darkGrey: #222;
+$dark-grey: #222;
 
 body {
   background-image: url('https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/background.png');
   font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $linkcolor;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: darken($color: $linkcolor, $amount: 8);
+  }
 }
 
 #pet-or-pest {
@@ -28,6 +41,7 @@ body {
 
 .header {
   text-align: center;
+
   h1 {
     font-size: 2.2em;
     @include bp('med') {
@@ -41,6 +55,7 @@ body {
 
 .main {
   position: relative;
+  margin-top: 60px;
 }
 
 .animal {
@@ -69,10 +84,10 @@ body {
   width: 95px;
   border: 0;
   text-transform: uppercase;
-  text-shadow: 1px 1px 10px #000;
+  text-shadow: 1px 1px 10px $black;
   font-size: 31px;
   position: relative;
-  color: #fff;
+  color: $white;
   height: 46px;
   padding: 0 14px;
   position: absolute;
@@ -85,7 +100,7 @@ body {
 
   &::after {
     position: absolute;
-    content: "";
+    content: '';
     top: -18px;
     width: 0;
     height: 0;
@@ -99,7 +114,7 @@ body {
     right: 20px;
 
     &::after {
-      right: -36px; 
+      right: -36px;
       border-left: 40px solid $petcolor;
       border-right: 5px solid transparent;
     }
@@ -121,7 +136,7 @@ body {
   padding-top: 10px;
   margin: 50px;
   text-align: center;
-  color: $darkGrey;
+  color: $dark-grey;
 }
 
 /* FOR STATIC CONTENT */
