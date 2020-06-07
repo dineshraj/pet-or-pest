@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import express, { json } from 'express';
+import express from 'express';
 
 import React from 'react';
 import { renderToString } from 'react-dom/server';
@@ -29,7 +29,7 @@ const app = express();
 // for IBM cloud
 app.enable('trust proxy');
 
-function getImages() {
+function getImages(): Promise<any> {
   return cos.listObjects({ Bucket: bucketName }).promise();
 }
 

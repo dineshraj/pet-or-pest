@@ -1,20 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ibm from 'ibm-cos-sdk';
-import util from 'util';
-
-import {
-  endPoint,
-  apiKey,
-  resourceInstanceId,
-  ibmAuthEndpoint
-} from '../../config';
-
-const storageConfig = {
-  endpoint: endPoint,
-  apiKeyId: apiKey,
-  ibmAuthEndpoint,
-  serviceInstanceId: resourceInstanceId
-};
+import PropTypes from 'prop-types';
 
 const App: React.FunctionComponent = ({ imageData }) => {
   const [images, setImages] = useState({});
@@ -61,6 +46,10 @@ const App: React.FunctionComponent = ({ imageData }) => {
       </footer>
     </>
   );
+};
+
+App.propTypes = {
+  imageData: PropTypes.object
 };
 
 export default App;
