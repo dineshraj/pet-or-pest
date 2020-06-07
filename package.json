@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production npm run clean && npm run babel && webpack",
-    "build:dev": "NODE_ENV=dev npm run clean && npm run babel && webpack --display-error-details",
-    "debug": "NODE_ENV=dev nodemon -e js,ts,tsx,html,scss --ignore dist/ --ignore public/ --exec npm run build:dev",
+    "build:dev": "NODE_ENV=dev npm run clean && npm run babel && webpack --display-error-details && npm run debug:server",
+    "debug": "nodemon -e js,ts,tsx,html,scss --ignore dist/ --ignore public/ --exec npm run build:dev",
+    "debug:server": "wait-on ./public/main.html && node ./dist/server.js",
     "test": "./node_modules/mocha/bin/mocha --recursive './test/**/*.{js,ts,jsx,tsx}'",
     "start": "node dist/server.js",
     "posttest": "npm run tsc && npm run lint && npm run format:check",
@@ -66,6 +67,7 @@
     "tslint": "^6.1.1",
     "typescript": "^3.8.3",
     "url-loader": "^4.1.0",
+    "wait-on": "^5.0.1",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
