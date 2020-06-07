@@ -73,8 +73,10 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "ibm-cos-sdk": "^1.6.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "util": "^0.12.3"
   },
   "eslintConfig": {
     "extends": [

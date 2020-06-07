@@ -5,4 +5,6 @@ import App from './components/App';
 
 import './styles/app.scss';
 
-hydrate(<App />, document.getElementById('pet-or-pest'));
+const imageData = document.querySelector('#imageData').textContent;
+
+hydrate(<App imageData={imageData} />, document.querySelector('#pet-or-pest'));

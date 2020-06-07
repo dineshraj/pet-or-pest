@@ -1,10 +1,27 @@
 import path from 'path';
 import fs from 'fs';
-import express from 'express';
+import express, { json } from 'express';
 
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import App from './components/App';
+
+import ibm from 'ibm-cos-sdk';
+import {
+  endPoint,
+  apiKey,
+  resourceInstanceId,
+  ibmAuthEndpoint,
+  bucketName
+} from '../config';
+
+const storageConfig = {
+  endpoint: endPoint,
+  apiKeyId: apiKey,
+  serviceInstanceId: resourceInstanceId,
+  ibmAuthEndpoint
+};
+const cos = new ibm.S3(storageConfig);
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -12,19 +29,27 @@ const app = express();
 // for IBM cloud
 app.enable('trust proxy');
 
+function getImages() {
+  return cos.listObjects({ Bucket: bucketName }).promise();
+}
+
 function handleRender(req, res): void {
-  const html = renderToString(<App />);
+  getImages().then((imageData) => {
+    const html = renderToString(<App imageData={imageData} />);
 
-  fs.readFile(`public/main.html`, 'utf8', (err, data) => {
-    if (err) {
-      throw err;
-    }
+    fs.readFile(`public/main.html`, 'utf8', (err, data) => {
+      if (err) {
+        throw err;
+      }
 
-    const document = data.replace(
-      /<div id="pet-or-pest"><\/div>/,
-      `<div id="pet-or-pest">${html}</div>`
-    );
-    res.send(document);
+      const document = data.replace(
+        /<div id="pet-or-pest"><\/div>/,
+        `<div id="pet-or-pest"><div id="imageData">
+          ${JSON.stringify(imageData)}
+        </div>${html}</div>`
+      );
+      res.send(document);
+    });
   });
 }
 

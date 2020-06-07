@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ibm from 'ibm-cos-sdk';
+import util from 'util';
 
-const App: React.FunctionComponent = () => {
-  // const [image, setImage] = useState({ hits: [] });
+import {
+  endPoint,
+  apiKey,
+  resourceInstanceId,
+  ibmAuthEndpoint
+} from '../../config';
 
-  // useEffect(async () => {
-  //   const image =
-  //   setImage(image);
-  // });
+const storageConfig = {
+  endpoint: endPoint,
+  apiKeyId: apiKey,
+  ibmAuthEndpoint,
+  serviceInstanceId: resourceInstanceId
+};
+
+const App: React.FunctionComponent = ({ imageData }) => {
+  const [images, setImages] = useState({});
+
+  useEffect(() => {
+    const imageDataObject = JSON.parse(imageData);
+    setImages(imageDataObject.Contents);
+    console.log('setting images to', imageDataObject.Contents);
+    console.log('images are now', images);
+  }, []);
 
   function handleClick(e): void {
-    console.log(e.target);
     console.log(e.target.getAttribute('data-id'));
   }
 
