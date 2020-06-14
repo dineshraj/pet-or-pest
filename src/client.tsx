@@ -6,5 +6,9 @@ import App from './components/App';
 import './styles/app.scss';
 
 const imageData = document.querySelector('#imageData').textContent;
+const imageDataArray = imageData.split(',');
 
-hydrate(<App imageData={imageData} />, document.querySelector('#pet-or-pest'));
+hydrate(
+  <App imageData={imageDataArray} firstClientRender={true} />,
+  document.querySelector('#pet-or-pest')
+);

@@ -29,13 +29,36 @@ const app = express();
 // for IBM cloud
 app.enable('trust proxy');
 
-function getImages(): Promise<any> {
+function getImages(): Promise<object> {
   return cos.listObjects({ Bucket: bucketName }).promise();
 }
 
+function formatImageData(rawImageData): Array<string> {
+  return rawImageData.map((imageObject) => {
+    return imageObject.Key;
+  });
+}
+
+function shuffle(array): Array<string> {
+  let currentIndex = array.length;
+  let temporaryValue;
+  let randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
 function handleRender(req, res): void {
-  getImages().then((imageData) => {
-    const html = renderToString(<App imageData={imageData} />);
+  getImages().then(({ Contents: rawImageData }) => {
+    const imageData = formatImageData(rawImageData);
+    const html = renderToString(<App imageData={shuffle(imageData)} />);
 
     fs.readFile(`public/main.html`, 'utf8', (err, data) => {
       if (err) {
@@ -44,9 +67,10 @@ function handleRender(req, res): void {
 
       const document = data.replace(
         /<div id="pet-or-pest"><\/div>/,
-        `<div id="pet-or-pest"><div id="imageData">
-          ${JSON.stringify(imageData)}
-        </div>${html}</div>`
+        `<div id="pet-or-pest">
+          <div id="imageData">${imageData}</div>
+          ${html}
+        </div>`
       );
       res.send(document);
     });

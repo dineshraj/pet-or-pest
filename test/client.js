@@ -6,6 +6,14 @@ import ReactDOM from 'react-dom';
 
 import App from '../src/components/App';
 
+const mockImageData = [
+  '07ff9e5c-fd23-4b56-8fad-e3192c87d229.jpg',
+  '07ff9e5c-fd23-4b56-8fad-e3192c87d230.jpg',
+  '07ff9e5c-fd23-4b56-8fad-e3192c87d231.jpg',
+  '07ff9e5c-fd23-4b56-8fad-e3192c87d232.jpg',
+  '07ff9e5c-fd23-4b56-8fad-e3192c87d233.jpg'
+];
+
 describe('Client', () => {
   it('renders the client without errors', () => {
     const renderSpy = sinon.spy(ReactDOM, 'hydrate');
@@ -18,7 +26,7 @@ describe('Client', () => {
     let renderedApp;
 
     beforeEach(() => {
-      renderedApp = shallow(<App />);
+      renderedApp = shallow(<App imageData={mockImageData} />);
     });
 
     it('renders the logo with a hidden h1', () => {
@@ -47,6 +55,14 @@ describe('Client', () => {
         footer.text(),
         'Pet or Pest? Made by D Goomani and Aimee Rivers'
       );
+    });
+
+    it('displays an initial image from the passed in imageData prop', () => {
+      const animal = renderedApp.find('.animal');
+      const imageSrc = animal.prop('src').split('/');
+      const imageName = imageSrc[imageSrc.length - 1];
+
+      assert(mockImageData.includes(imageName));
     });
   });
 });

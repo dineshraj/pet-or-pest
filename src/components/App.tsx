@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const App: React.FunctionComponent = ({ imageData }) => {
-  const [images, setImages] = useState({});
+const IMAGE_PREFIX =
+  'https://s3.eu-gb.cloud-object-storage.appdomain.cloud/pet-or-pest-storage';
 
-  useEffect(() => {
-    const imageDataObject = JSON.parse(imageData);
-    setImages(imageDataObject.Contents);
-    console.log('setting images to', imageDataObject.Contents);
-    console.log('images are now', images);
-  }, []);
+const App: React.FunctionComponent = ({ imageData }) => {
+  const [images] = useState(imageData);
+
+  function selectImage({ random }): string {
+    const index = random ? Math.floor(Math.random() * images.length) : 0;
+    const newImage = `${IMAGE_PREFIX}/${images[index]}`;
+    return newImage;
+  }
+
+  const [currentImage] = useState(selectImage({ random: true }));
 
   function handleClick(e): void {
     console.log(e.target.getAttribute('data-id'));
@@ -21,10 +25,7 @@ const App: React.FunctionComponent = ({ imageData }) => {
         <h1>Pet or Pest?</h1>
       </header>
       <main className="main">
-        <img
-          className="animal"
-          src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2020/01/07/13/monarch-butterfly.jpg?w968h681"
-        />
+        <img className="animal" src={currentImage} />
         <button
           data-id="pest"
           className="arrow arrow--pest"
@@ -49,7 +50,7 @@ const App: React.FunctionComponent = ({ imageData }) => {
 };
 
 App.propTypes = {
-  imageData: PropTypes.object
+  imageData: PropTypes.array
 };
 
 export default App;
