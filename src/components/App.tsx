@@ -13,7 +13,7 @@ const App: React.FunctionComponent = ({ imageData }) => {
     return newImage;
   }
 
-  const [currentImage] = useState(selectImage({ random: true }));
+  const [currentImage] = useState(selectImage({ random: false }));
 
   function handleClick(e): void {
     console.log(e.target.getAttribute('data-id'));

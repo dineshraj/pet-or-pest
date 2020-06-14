@@ -56,7 +56,7 @@ function shuffle(array): Array<string> {
 }
 
 function handleRender(req, res): void {
-  getImages().then(({ Contents: rawImageData }) => {
+  getImages().then(({ Contents: rawImageData }: any) => {
     const imageData = formatImageData(rawImageData);
     const html = renderToString(<App imageData={shuffle(imageData)} />);
 

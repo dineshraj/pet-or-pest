@@ -57,12 +57,10 @@ describe('Client', () => {
       );
     });
 
-    it('displays an initial image from the passed in imageData prop', () => {
+    it('displays the first image in the image data from the passed in imageData prop', () => {
       const animal = renderedApp.find('.animal');
-      const imageSrc = animal.prop('src').split('/');
-      const imageName = imageSrc[imageSrc.length - 1];
-
-      assert(mockImageData.includes(imageName));
+      const expectedFileName = mockImageData[0];
+      assert(animal.prop('src').includes(expectedFileName));
     });
   });
 });
