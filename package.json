@@ -4,7 +4,7 @@
   "description": "A nodejs app using express, webpack, babel and React,",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=productionnpm run clean && npm run copyStatic && npm run babel && webpack",
+    "build": "NODE_ENV=production npm run clean && npm run copyStatic && npm run babel && webpack",
     "build:dev": "NODE_ENV=dev npm run clean && npm run copyStatic && npm run babel && webpack --display-error-details && npm run debug:server",
     "copyStatic": "cp -r src/static/* public",
     "debug": "nodemon -e js,ts,tsx,html,scss --ignore dist/ --ignore public/ --exec npm run build:dev",
