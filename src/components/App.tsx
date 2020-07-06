@@ -22,7 +22,7 @@ const App: React.FunctionComponent = ({ imageData }) => {
   return (
     <>
       <header className="header">
-        <img src="/pet-or-pest-logo.png"></img>
+        <img src="pet-or-pest-logo.png"></img>
         <h1 className="hide">Pet or Pest?</h1>
       </header>
       <main className="main">

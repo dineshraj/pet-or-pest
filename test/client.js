@@ -31,7 +31,8 @@ describe('Client', () => {
 
     it('renders the logo with a hidden h1', () => {
       const header = renderedApp.find('header');
-      assert(header.find('h1'));
+      assert(header.find('h1.hidden'));
+      assert(header.find('img'));
       assert.strictEqual(header.text(), 'Pet or Pest?');
       // @todo test for logo when one is made
     });
