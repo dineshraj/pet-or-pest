@@ -20,7 +20,6 @@ function getPlugins() {
       title:
         'Pet or Pest? Choose whether you think the animal is a pet or a pest!',
       template: 'src/views/main.html',
-      favicon: 'src/static/favicon.png',
       filename: 'main.html'
     }),
     new MiniCssExtractPlugin({ filename: 'bundle.[chunkhash].css' })

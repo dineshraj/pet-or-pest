@@ -31,6 +31,14 @@ a {
   }
 }
 
+.hide {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 #pet-or-pest {
   width: 300px;
   @include bp('small') {
@@ -61,7 +69,6 @@ a {
 
 .main {
   position: relative;
-  margin-top: 60px;
 }
 
 .animal {
