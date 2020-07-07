@@ -19,12 +19,11 @@ $dark-blue: #4794db;
 }
 
 body {
-  min-height: 100vh;
-  background-color: $background-color;
   font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background-color: $background-color;
 
-  --stripe1: $med-blue;
-  --stripe2: $dark-blue;
   background-image: url('../static/bg.jpg');
   background-image: radial-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.9)),
     repeating-conic-gradient(
