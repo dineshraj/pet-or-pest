@@ -25,32 +25,13 @@ body {
 
   --stripe1: $med-blue;
   --stripe2: $dark-blue;
-
+  background-image: url('../static/bg.jpg');
   background-image: radial-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.9)),
-  conic-gradient(
-    var(--stripe1) 0%,
-    var(--stripe2) 0 5%,
-    var(--stripe1) 0 10%,
-    var(--stripe2) 0 15%,
-    var(--stripe1) 0 20%,
-    var(--stripe2) 0 25%,
-    var(--stripe1) 0 30%,
-    var(--stripe2) 0 35%,
-    var(--stripe1) 0 40%,
-    var(--stripe2) 0 45%,
-    var(--stripe1) 0 50%,
-    var(--stripe2) 0 55%,
-    var(--stripe1) 0 60%,
-    var(--stripe2) 0 65%,
-    var(--stripe1) 0 70%,
-    var(--stripe2) 0 75%,
-    var(--stripe1) 0 80%,
-    var(--stripe2) 0 85%,
-    var(--stripe1) 0 55%,
-    var(--stripe1) 0 90%,
-    var(--stripe2) 0 95%,
-    var(--stripe1) 0 100%
-  );
+    repeating-conic-gradient(
+      from 0deg,
+      $med-blue 0deg 5deg,
+      $dark-blue 5deg 10deg
+    );
   background-size: 100% 100%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
