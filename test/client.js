@@ -34,7 +34,6 @@ describe('Client', () => {
       assert(header.find('h1.hidden'));
       assert(header.find('img'));
       assert.strictEqual(header.text(), 'Pet or Pest?');
-      // @todo test for logo when one is made
     });
 
     it('renders a container with an initial image', () => {
@@ -63,5 +62,40 @@ describe('Client', () => {
       const expectedFileName = mockImageData[0];
       assert(animal.prop('src').includes(expectedFileName));
     });
+
+    it('does not display the results div on initial load', () => {
+      const result = renderedApp.find('.result');
+      assert.strictEqual(result.length, 0);
+    });
+
+    it('displays the previous image below the current image when a choice has been made by the user', () => {
+      const currentAnimal = renderedApp.find('.animal').prop('src');
+      const petArrow = renderedApp.find('button.arrow--pet');
+      petArrow.simulate('click', { target: { getAttribute: () => 'pet' } });
+      let result = renderedApp.find('.result');
+      assert.strictEqual(result.length, 1);
+      assert.strictEqual(
+        result.find('.result__image').prop('src'),
+        currentAnimal
+      );
+      assert.strictEqual(result.find('.result__text').text(), 'you said pet');
+
+      const pestArrow = renderedApp.find('button.arrow--pest');
+      pestArrow.simulate('click', { target: { getAttribute: () => 'pest' } });
+      result = renderedApp.find('.result');
+      assert.strictEqual(result.find('.result__text').text(), 'you said pest');
+    });
+
+    it.only('refreshes the current image once a choice has been made by the user', () => {
+      const currentAnimal = renderedApp.find('.animal').prop('src');
+      const petArrow = renderedApp.find('button.arrow--pet');
+      petArrow.simulate('click', { target: { getAttribute: () => 'pet' } });
+
+      const newCurrentAnimal = renderedApp.find('.animal').prop('src');
+
+      assert.notStrictEqual(currentAnimal, newCurrentAnimal);
+    });
+
+    it.skip('never loads the same image twice in a row');
   });
 });

@@ -13,16 +13,37 @@ const App: React.FunctionComponent = ({ imageData }) => {
     return newImage;
   }
 
-  const [currentImage] = useState(selectImage({ random: false }));
+  const [currentImage, setCurrentImage] = useState(
+    selectImage({ random: false })
+  );
+
+  const [previousImage, setPreviousImage] = useState(null);
+
+  const [choiceMade, setChoiceMade] = useState(null);
 
   function handleClick(e): void {
-    console.log(e.target.getAttribute('data-id'));
+    setPreviousImage(currentImage);
+    let newImage = selectImage({ random: true });
+    while (newImage === currentImage) {
+      newImage = selectImage({ random: true });
+    }
+    setCurrentImage(newImage);
+    setChoiceMade(e.target.getAttribute('data-id'));
+  }
+
+  function renderResults() {
+    return (
+      <div className="result">
+        <img className="result__image" src={previousImage} />
+        <span className="result__text">you said {choiceMade}</span>
+      </div>
+    );
   }
 
   return (
     <>
       <header className="header">
-        <img src="pet-or-pest-logo.png"></img>
+        <img src="pet-or-pest-logo.png" />
         <h1 className="hide">Pet or Pest?</h1>
       </header>
       <main className="main">
@@ -41,6 +62,7 @@ const App: React.FunctionComponent = ({ imageData }) => {
         >
           Pet
         </button>
+        {previousImage ? renderResults() : null}
       </main>
       <footer className="footer">
         Pet or Pest? Made by <a href="http://www.dineshraj.com">D Goomani</a>{' '}
