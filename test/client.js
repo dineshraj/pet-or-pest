@@ -86,7 +86,7 @@ describe('Client', () => {
       assert.strictEqual(result.find('.result__text').text(), 'you said pest');
     });
 
-    it.only('refreshes the current image once a choice has been made by the user', () => {
+    it('refreshes the current image once a choice has been made by the user', () => {
       const currentAnimal = renderedApp.find('.animal').prop('src');
       const petArrow = renderedApp.find('button.arrow--pet');
       petArrow.simulate('click', { target: { getAttribute: () => 'pet' } });
