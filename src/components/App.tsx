@@ -31,7 +31,7 @@ const App: React.FunctionComponent = ({ imageData }) => {
     setChoiceMade(e.target.getAttribute('data-id'));
   }
 
-  function renderResults() {
+  function renderResults(): object {
     return (
       <div className="result">
         <span className="result__text">you said {choiceMade}</span>
