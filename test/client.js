@@ -53,7 +53,7 @@ describe('Client', () => {
       const footer = renderedApp.find('footer');
       assert.strictEqual(
         footer.text(),
-        'Pet or Pest? Made by D Goomani and Aimee Rivers'
+        'Pet or Pest? Made by D Goomany and Aimee Rivers'
       );
     });
 

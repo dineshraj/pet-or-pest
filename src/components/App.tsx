@@ -34,8 +34,8 @@ const App: React.FunctionComponent = ({ imageData }) => {
   function renderResults() {
     return (
       <div className="result">
-        <img className="result__image" src={previousImage} />
         <span className="result__text">you said {choiceMade}</span>
+        <img className="result__image" src={previousImage} />
       </div>
     );
   }
@@ -47,25 +47,27 @@ const App: React.FunctionComponent = ({ imageData }) => {
         <h1 className="hide">Pet or Pest?</h1>
       </header>
       <main className="main">
-        <img className="animal" src={currentImage} />
-        <button
-          data-id="pest"
-          className="arrow arrow--pest"
-          onClick={(e: Event): void => handleClick(e)}
-        >
-          Pest
-        </button>
-        <button
-          data-id="pet"
-          className="arrow arrow--pet"
-          onClick={(e: Event): void => handleClick(e)}
-        >
-          Pet
-        </button>
+        <div className="choice">
+          <img className="animal" src={currentImage} />
+          <button
+            data-id="pest"
+            className="arrow arrow--pest"
+            onClick={(e: Event): void => handleClick(e)}
+          >
+            Pest
+          </button>
+          <button
+            data-id="pet"
+            className="arrow arrow--pet"
+            onClick={(e: Event): void => handleClick(e)}
+          >
+            Pet
+          </button>
+        </div>
         {previousImage ? renderResults() : null}
       </main>
       <footer className="footer">
-        Pet or Pest? Made by <a href="http://www.dineshraj.com">D Goomani</a>{' '}
+        Pet or Pest? Made by <a href="http://www.dineshraj.com">D Goomany</a>{' '}
         and Aimee Rivers
       </footer>
     </>
