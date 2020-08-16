@@ -1,0 +1,6 @@
+applications:
+- name: PetOrPest
+memory: 256M
+
+---
+
