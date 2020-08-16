@@ -3,7 +3,7 @@ import fs from 'fs';
 import express from 'express';
 
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToNodeStream } from 'react-dom/server';
 import App from './components/App';
 
 import ibm from 'ibm-cos-sdk';
@@ -58,7 +58,7 @@ function shuffle(array): Array<string> {
 function handleRender(req, res): void {
   getImages().then(({ Contents: rawImageData }: any) => {
     const imageData = formatImageData(rawImageData);
-    const html = renderToString(<App imageData={shuffle(imageData)} />);
+    const html = renderToNodeStream(<App imageData={shuffle(imageData)} />);
 
     fs.readFile(`public/main.html`, 'utf8', (err, data) => {
       if (err) {

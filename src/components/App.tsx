@@ -33,43 +33,41 @@ const App: React.FunctionComponent = ({ imageData }) => {
 
   function renderResults(): object {
     return (
-      <div className="result">
-        <span className="result__text">you said {choiceMade}</span>
+      <>
+        <span className="result__text">you said {choiceMade}!</span>
         <img className="result__image" src={previousImage} />
-      </div>
+      </>
     );
   }
 
   return (
     <>
       <header className="header">
-        <img src="pet-or-pest-logo.png" />
+        <img src="pet-or-pest-logo.png" alt="pet or pest logo" />
         <h1 className="hide">Pet or Pest?</h1>
       </header>
       <main className="main">
         <div className="choice">
-          <img className="animal" src={currentImage} />
+          <img
+            className="animal"
+            src={currentImage}
+            alt="image of a pet or a pest"
+          />
           <button
             data-id="pest"
+            aria-label="choose pest"
             className="arrow arrow--pest"
             onClick={(e: Event): void => handleClick(e)}
-          >
-            Pest
-          </button>
+          />
           <button
             data-id="pet"
+            aria-label="choose pet"
             className="arrow arrow--pet"
             onClick={(e: Event): void => handleClick(e)}
-          >
-            Pet
-          </button>
+          />
         </div>
-        {previousImage ? renderResults() : null}
+        <div className="result">{previousImage ? renderResults() : null}</div>
       </main>
-      <footer className="footer">
-        Pet or Pest? Made by <a href="http://www.dineshraj.com">D Goomany</a>{' '}
-        and Aimee Rivers
-      </footer>
     </>
   );
 };

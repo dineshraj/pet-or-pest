@@ -25,7 +25,12 @@ body {
   background-color: $background-color;
 
   background-image: url('../static/bg.jpg');
-  background-image: radial-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.9)), repeating-conic-gradient(from 0deg, $med-blue 0deg 5deg, $dark-blue 5deg 10deg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.9)),
+  repeating-conic-gradient(
+    from 0deg,
+    $med-blue 0deg 5deg,
+    $dark-blue 5deg 10deg
+  );
   background-size: 100% 100%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -97,6 +102,7 @@ a {
   box-shadow: 0 4px 8px 0 $grey, 0 6px 20px 0 $grey;
   width: 220px;
   height: 220px;
+
   @include bp('small') {
     width: 300px;
     height: 300px;
@@ -108,20 +114,15 @@ a {
 }
 
 .arrow {
-  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
   outline: none;
-  width: 95px;
+  height: 113px;
+  width: 150px;
   border: 0;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 10px $black;
-  font-size: 31px;
-  position: relative;
-  color: $white;
-  height: 46px;
-  padding: 0 14px;
   position: absolute;
   transform: translateY(-50%);
   top: 100%;
+  background-color: transparent;
+  background-repeat: no-repeat;
 
   &:hover,
   &:active,
@@ -133,43 +134,38 @@ a {
     top: 50%;
   }
 
-  &::after {
-    position: absolute;
-    content: '';
-    top: -18px;
-    width: 0;
-    height: 0;
-    display: inline-block;
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-  }
-
   &--pet {
-    background-color: $pet-color;
+    background-image: url('../static/arrrow-right.png');
     right: 20px;
 
-    &::after {
-      right: -36px;
-      border-left: 40px solid $pet-color;
-      border-right: 5px solid transparent;
+    &:hover,
+    &:active,
+    &:focus {
+      background-image: url('../static/arrrow-right-rotated.png');
     }
   }
 
   &--pest {
-    background-color: $pest-color;
+    background-image: url('../static/arrrow-left.png');
     left: 20px;
 
-    &::after {
-      left: -36px;
-      border-left: 5px solid transparent;
-      border-right: 40px solid $pest-color;
+    &:hover,
+    &:active,
+    &:focus {
+      background-image: url('../static/arrrow-left-rotated.png');
     }
   }
 }
 
 .result {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 70px;
+  margin-bottom: 30px;
+  height: 193px;
+
+  @include bp('med') {
+    margin-top: 40px;
+  }
 
   &__image {
     width: 150px;
@@ -181,281 +177,5 @@ a {
     color: $white;
     font-size: 25px;
     text-transform: uppercase;
-  }
-}
-
-.footer {
-  padding-top: 10px;
-  margin: 50px;
-  text-align: center;
-  color: $white;
-}
-
-/* FOR STATIC CONTENT */
-// .pet-or-pest {
-//   width: 300px;
-//   @include bp('small') {
-//     width: 400px;
-//   }
-//   @include bp('med') {
-//     width: 600px;
-//   }
-//   @include bp('large') {
-//     width: 900px;
-//   }
-//   margin: 0 auto;
-
-//   .pet-or-pest__heading {
-//     text-align: center;
-//     font-size: 2em;
-//     @include bp('small') {
-//       font-size: 2.2em;
-//     }
-//     @include bp('med') {
-//       font-size: 2.5em;
-//     }
-//     @include bp('large') {
-//       font-size: 3em;
-//     }
-//   }
-
-//   .pet-or-pest__image {
-//     background-color: $white;
-//     display: block;
-//     margin: 0 auto;
-//     border: 10px solid $white;
-//     box-shadow: 0 4px 8px 0 $grey, 0 6px 20px 0 $grey;
-//     animation-name: show;
-//     animation-duration: 1s;
-//     width: 220px;
-//     height: 220px;
-//     @include bp('small') {
-//       width: 300px;
-//       height: 300px;
-//     }
-//     @include bp('med') {
-//       width: 450px;
-//       height: 450px;
-//     }
-//   }
-
-//   .pet-or-pest__arrows {
-//     position: relative;
-//     top: -40px;
-//     @include bp('large') {
-//       top: -280px;
-//     }
-//   }
-
-//   .pet-or-pest__division {
-//     float: left;
-//   }
-
-//   .pet-or-pest__division--center {
-//     width: 76px;
-//     @include bp('small') {
-//       width: 176px;
-//     }
-//     @include bp('med') {
-//       width: 376px;
-//     }
-//     @include bp('large') {
-//       width: 676px;
-//     }
-//   }
-
-//   .pet-or-pest__arrow-link {
-//     text-decoration: none;
-//     color: $white;
-//     text-shadow: 1px 1px 10px #000;
-//     text-transform: uppercase;
-//   }
-
-//   .pet-or-pest__arrow--pet {
-//     width: 61px;
-//     height: 50px;
-//     background: $pet-color;
-//     float: left;
-//     margin-top: 15px;
-//     font-size: 31px;
-//     line-height: 50px;
-//     border-right: 10px solid $pet-color;
-//     margin-left: -21px;
-//   }
-
-//   .pet-or-pest__arrow--pest {
-//     width: 50px;
-//     height: 50px;
-//     background: $pest-color;
-//     float: left;
-//     margin-top: 15px;
-//     font-size: 31px;
-//     line-height: 50px;
-//     border-left: 10px solid $pest-color;
-//   }
-
-//   .pet-or-pest__arrow-head {
-//     width: 0;
-//     height: 0;
-//   }
-
-//   .pet-or-pest__arrow-head--pet {
-//     border-top: 40px solid transparent;
-//     border-right: 62px solid $pet-color;
-//     border-bottom: 40px solid transparent;
-//     float: left;
-//   }
-
-//   .pet-or-pest__arrow-head--pest {
-//     border-top: 40px solid transparent;
-//     border-left: 62px solid $pest-color;
-//     border-bottom: 40px solid transparent;
-//     margin-left: 50px;
-//   }
-// }
-
-// .results {
-//   clear: left;
-//   margin: 0 auto;
-//   width: 330px;
-//   @include bp('small') {
-//     width: 400px;
-//   }
-//   @include bp('med') {
-//     width: 500px;
-//   }
-
-//   .results__heading {
-//     text-align: center;
-//     font-size: 1.5em;
-//     @include bp('small') {
-//       font-size: 1.8em;
-//     }
-//     @include bp('med') {
-//       font-size: 2.2em;
-//     }
-//     @include bp('large') {
-//       font-size: 2.6em;
-//     }
-//   }
-
-//   .results__division--left {
-//     width: 100%;
-//     @include bp('med') {
-//       float: left;
-//       width: 33%;
-//     }
-//   }
-
-//   .results__division--center {
-//     float: left;
-//     width: 50%;
-//     @include bp('med') {
-//       width: 34%;
-//     }
-//   }
-
-//   .results__division--right {
-//     float: left;
-//     width: 50%;
-//     @include bp('med') {
-//       width: 33%;
-//     }
-//   }
-
-//   .results__image {
-//     background-color: #a9a9a9;
-//     width: 130px;
-//     height: 130px;
-//     display: block;
-//     margin: 0 auto;
-//     border: 6px solid $white;
-//     box-shadow: 0 4px 8px 0 $grey, 0 6px 20px 0 $grey;
-//     animation-name: show;
-//     animation-duration: 0.5s;
-//   }
-
-//   .results__agreement {
-//     color: #444;
-//     font-style: italic;
-//     text-align: center;
-//     font-size: 1.6em;
-//     @include bp('med') {
-//       font-size: 2.2em;
-//     }
-//   }
-
-//   .results__agreement-percent {
-//     font-weight: bold;
-//   }
-
-//   .results__bar-chart {
-//     width: 120px;
-//     height: 120px;
-//     margin: 10px auto;
-//     border-left: 2px solid #222;
-//     border-bottom: 2px solid #222;
-//   }
-
-//   .results__bar-chart--bar {
-//     float: left;
-//     height: 110px;
-//     width: 44px;
-//     margin-left: 10px;
-//     border: 1px solid #888;
-//     border-bottom: 2px solid #222;
-//     margin-top: 9px;
-//     animation-name: grow;
-//     animation-duration: 0.5s;
-//   }
-
-//   .results__bar-chart--label {
-//     margin-top: 5px;
-//     color: $white;
-//     text-shadow: 1px 1px 10px #000;
-//     display: block;
-//     text-align: center;
-//     text-transform: uppercase;
-//   }
-
-//   .results__bar-chart--bar-pet {
-//     background-color: $pet-color;
-//   }
-
-//   .results__bar-chart--bar-pest {
-//     background-color: $pest-color;
-//   }
-// }
-
-// .footer {
-//   clear: left;
-//   padding-top: 10px;
-
-//   p {
-//     text-align: center;
-//     margin: 50px;
-//     color: #222;
-//   }
-// }
-
-@keyframes grow {
-  0% {
-    margin-top: 119px;
-    height: 0;
-    font-size: 0;
-  }
-
-  99% {
-    font-size: 0;
-  }
-}
-
-@keyframes show {
-  0% {
-    opacity: 0%;
-  }
-
-  100% {
-    opacity: 100%;
   }
 }

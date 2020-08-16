@@ -45,16 +45,8 @@ describe('Client', () => {
     it('renders Pet and Pest button arrows', () => {
       const arrow = renderedApp.find('button.arrow');
       assert.strictEqual(arrow.length, 2);
-      assert.strictEqual(arrow.find('.arrow--pest').text(), 'Pest');
-      assert.strictEqual(arrow.find('.arrow--pet').text(), 'Pet');
-    });
-
-    it('renders a footer', () => {
-      const footer = renderedApp.find('footer');
-      assert.strictEqual(
-        footer.text(),
-        'Pet or Pest? Made by D Goomany and Aimee Rivers'
-      );
+      assert.strictEqual(arrow.find('.arrow--pest').prop('data-id'), 'pest');
+      assert.strictEqual(arrow.find('.arrow--pet').prop('data-id'), 'pet');
     });
 
     it('displays the first image in the image data from the passed in imageData prop', () => {
@@ -63,8 +55,8 @@ describe('Client', () => {
       assert(animal.prop('src').includes(expectedFileName));
     });
 
-    it('does not display the results div on initial load', () => {
-      const result = renderedApp.find('.result');
+    it('does not display the results image on initial load', () => {
+      const result = renderedApp.find('.result .result__image');
       assert.strictEqual(result.length, 0);
     });
 
@@ -78,12 +70,12 @@ describe('Client', () => {
         result.find('.result__image').prop('src'),
         currentAnimal
       );
-      assert.strictEqual(result.find('.result__text').text(), 'you said pet');
+      assert.strictEqual(result.find('.result__text').text(), 'you said pet!');
 
       const pestArrow = renderedApp.find('button.arrow--pest');
       pestArrow.simulate('click', { target: { getAttribute: () => 'pest' } });
       result = renderedApp.find('.result');
-      assert.strictEqual(result.find('.result__text').text(), 'you said pest');
+      assert.strictEqual(result.find('.result__text').text(), 'you said pest!');
     });
 
     it('refreshes the current image once a choice has been made by the user', () => {
