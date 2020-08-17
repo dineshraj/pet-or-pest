@@ -43,7 +43,11 @@ const App: React.FunctionComponent = ({ imageData }) => {
   return (
     <>
       <header className="header">
-        <img src="pet-or-pest-logo.png" alt="pet or pest logo" />
+        <img
+          className="header__logo"
+          src="pet-or-pest-logo.png"
+          alt="pet or pest logo"
+        />
         <h1 className="hide">Pet or Pest?</h1>
       </header>
       <main className="main">

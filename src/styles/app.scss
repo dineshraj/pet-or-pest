@@ -62,6 +62,14 @@ a {
 .header {
   text-align: center;
 
+  &__logo {
+    width: 100%;
+
+    @include bp('med') {
+      width: auto;
+    }
+  }
+
   h1 {
     font-size: 2.2em;
     @include bp('med') {
@@ -136,7 +144,7 @@ a {
 
   &--pet {
     background-image: url('../static/arrrow-right.png');
-    right: 20px;
+    right: -10px;
 
     &:hover,
     &:active,
@@ -147,7 +155,7 @@ a {
 
   &--pest {
     background-image: url('../static/arrrow-left.png');
-    left: 20px;
+    left: -10px;
 
     &:hover,
     &:active,
