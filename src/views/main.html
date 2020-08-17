@@ -2,6 +2,21 @@
 
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-81644572-15"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-81644572-15');
+    </script>
+
     <meta charset="utf-8" />
     <title>Pet or Pest?</title>
     <meta
@@ -40,10 +55,7 @@
       itemprop="description"
       content="A site for desciding whether animals are a Pet or a Pest"
     />
-    <meta
-      itemprop="image"
-      content="https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/default-social.jpg"
-    />
+    <meta itemprop="image" content="social.jpg" />
 
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -54,14 +66,8 @@
     />
 
     <!-- Twitter summary card with large image must be at least 280x150px -->
-    <meta
-      name="twitter:image:src"
-      content="https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/default-social.jpg"
-    />
-    <meta
-      name="twitter:image"
-      content="https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/default-social.jpg"
-    />
+    <meta name="twitter:image:src" content="social.jpg" />
+    <meta name="twitter:image" content="social.jpg" />
     <meta name="twitter:url" content="https://www.petorpest.com/" />
 
     <!-- Open Graph data -->
@@ -73,77 +79,11 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.petorpest.com/" />
-    <meta
-      property="og:image"
-      content="https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/default-social.jpg"
-    />
+    <meta property="og:image" content="social.jpg" />
     <meta property="og:locale" content="en_GB" />
   </head>
   <body>
     <div id="pet-or-pest"></div>
-
-    <!-- <h1>Static Content below</h1>
-      <div class="pet-or-pest">
-        <h1 class="pet-or-pest__heading">Pet or Pest?</h1>
-
-        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2020/01/07/13/monarch-butterfly.jpg?w968h681" class="pet-or-pest__image" />
-
-        <div class="pet-or-pest__arrows">
-          <div class="pet-or-pest__division pet-or-pest__division--pet">
-            <div
-              class="pet-or-pest__arrow-head pet-or-pest__arrow-head--pet"
-            ></div>
-            <div class="pet-or-pest__arrow--pet">
-              <a class="pet-or-pest__arrow-link" href="#">Pet</a>
-            </div>
-          </div>
-
-          <div class="pet-or-pest__division pet-or-pest__division--center">
-            &nbsp;
-          </div>
-
-          <div class="pet-or-pest__division pet-or-pest__division--pest">
-            <div class="pet-or-pest__arrow--pest">
-              <a class="pet-or-pest__arrow-link" href="#">Pest</a>
-            </div>
-            <div
-              class="pet-or-pest__arrow-head pet-or-pest__arrow-head--pest"
-            ></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="results">
-        <h2 class="results__heading">You said: PET!</h2>
-
-        <div class="results__division results__division--left">
-          <p class="results__agreement">
-            <span class="results__agreement-percent">73%</span> agree with you
-          </p>
-        </div>
-
-        <div class="results__division results__division--center">
-          <img src="https://aimees-dumping-ground.s3-eu-west-1.amazonaws.com/pet-or-pest/kitten.jpg" class="results__image" />
-        </div>
-
-        <div class="results__division results__division--right">
-          <div class="results__bar-chart">
-            <div class="results__bar-chart--bar results__bar-chart--bar-pet">
-              <span class="results__bar-chart--label">73% Pet</span>
-            </div>
-            <div
-              class="results__bar-chart--bar results__bar-chart--bar-pest"
-              style="height: 50px; margin-top: 69px;"
-            >
-              <span class="results__bar-chart--label">27% Pest</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="footer">
-        <p>Pet or Pest? made by D Goomani and Aimee Rivers</p>
-      </section> -->
     <script
       crossorigin
       src="https://unpkg.com/react@16/umd/react.production.min.js"
