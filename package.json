@@ -10,7 +10,7 @@
     "debug": "nodemon -e js,ts,tsx,html,scss --ignore dist/ --ignore public/ --exec npm run build:dev",
     "debug:server": "wait-on ./public/main.html && node ./dist/server.js",
     "test": "./node_modules/mocha/bin/mocha --recursive './test/**/*.{js,ts,jsx,tsx}'",
-    "start": "npm run build && node dist/server.js",
+    "start": "node dist/server.js",
     "posttest": "npm run tsc && npm run lint && npm run format:check",
     "babel": "babel src --out-dir ./dist --source-maps --extensions .js,.ts,.tsx --copy-files",
     "clean": "rm -rf ./dist && mkdir -p ./dist && rm -rf ./public && mkdir -p ./public",
