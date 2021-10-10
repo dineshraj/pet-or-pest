@@ -36,6 +36,15 @@ body {
   background-repeat: no-repeat;
 }
 
+body::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url('../static/arrrow-right-rotated.png') url('../static/arrrow-left-rotated.png');
+}
+
 a {
   text-decoration: none;
   color: $link-color;
