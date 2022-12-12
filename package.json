@@ -73,7 +73,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "ibm-cos-sdk": "^1.6.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
